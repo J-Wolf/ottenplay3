@@ -1,8 +1,11 @@
 package controllers;
 
 import models.Otte;
+import play.data.Form;
+import play.data.FormFactory;
 import play.mvc.*;
 
+import javax.inject.Inject;
 import java.util.List;
 
 /**
@@ -12,5 +15,15 @@ public class OttenController extends Controller{
     List<Otte> ottenList = Otte.find.all();
     public Result index() {
         return ok(views.html.otten.render(ottenList));
+    }
+
+    @Inject
+    public FormFactory formFactory;
+
+    public Result create(){
+        Form<Otte> ottenForm = formFactory.form(Otte.class);
+        Otte otte = ottenForm.bindFromRequest().get();
+        otte.save();
+        return  redirect(routes.OttenController.index());
     }
 }

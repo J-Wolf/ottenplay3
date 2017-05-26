@@ -7,6 +7,7 @@ import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+
 import java.util.List;
 
 /**
@@ -35,7 +36,7 @@ public class FormController extends Controller {
         return ok(views.html.addCustomer.render(customerForm));
     }
     public Result addOtte(){
-        Form<Otte> customerForm = formFactory.form(Otte.class);
+        Form<Otte> otteForm = formFactory.form(Otte.class);
         return ok(views.html.addOtte.render(otteForm));
     }
 
