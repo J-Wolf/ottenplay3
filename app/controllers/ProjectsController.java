@@ -2,6 +2,7 @@ package controllers;
 
 import models.Customer;
 import models.Project;
+import models.Task;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
@@ -21,6 +22,12 @@ public class ProjectsController extends Controller{
 
     @Inject
     public FormFactory formFactory;
+
+    public Result show(Long id){
+        Project project = Project.find.byId(id);
+        List tasks = Task.find.all();
+        return ok(views.html.projectDetail.render(project, tasks));
+    }
 
     public Result create(){
         Form<Project> projectForm = formFactory.form(Project.class);

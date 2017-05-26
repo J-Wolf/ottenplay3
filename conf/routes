@@ -15,6 +15,7 @@ GET     /home                       controllers.HomeController.index()
 
 #Projects
 GET     /projects                   controllers.ProjectsController.index()
+GET     /project/:id                controllers.ProjectsController.show(id: Long)
 POST    /projects                   controllers.ProjectsController.create()
 
 #Otten

@@ -13,9 +13,16 @@
                     </thead>
                     <tbody>
                     @for(project <- projectList){
-                        <tr>
-                            <td>@project.getName()</td>
-                        </tr>
+                            <tr>
+                                <td>
+                                    <a href="@routes.ProjectsController.show(project.getId())">
+                                        <span style="color: black">
+                                            @project.getName()
+                                        </span>
+                                    </a>
+                                </td>
+
+                            </tr>
 
                     }
                     </tbody>
