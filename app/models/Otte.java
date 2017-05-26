@@ -17,13 +17,13 @@ public class Otte extends Model{
     private Long id;
     private String name;
     private String rasse;
-    private Task task;
+    private Task[] tasks;
 
-    public Otte(Long id, String name, String rasse, Task task) {
+    public Otte(Long id, String name, String rasse, Task[] tasks) {
         this.id = id;
         this.name = name;
         this.rasse = rasse;
-        this.task = task;
+        this.tasks = tasks;
     }
 
     public static Finder<Long, Otte> find = new Finder<Long, Otte>(Otte.class);
@@ -52,11 +52,11 @@ public class Otte extends Model{
         this.rasse = rasse;
     }
 
-    public Task getTask() {
-        return task;
+    public Task[] getTasks() {
+        return tasks;
     }
 
-    public void setTask(Task task) {
-        this.task = task;
+    public void setTasks(Task[] tasks) {
+        this.tasks = tasks;
     }
 }

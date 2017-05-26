@@ -7,11 +7,11 @@ drop index ix_task_project on task;
 alter table task drop foreign key fk_task_worker;
 drop index ix_task_worker on task;
 
+alter table task drop foreign key fk_task_otte;
+drop index ix_task_otte on task;
+
 alter table project drop foreign key fk_project_customer;
 drop index ix_project_customer on project;
-
-alter table otte drop foreign key fk_otte_task;
-drop index ix_otte_task on otte;
 
 drop table if exists project;
 
