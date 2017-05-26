@@ -5,6 +5,7 @@ import com.avaje.ebean.Model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /**
  * Created by georg on 21.05.2017.
@@ -21,6 +22,12 @@ public class Task extends Model {
     private Worker worker;
     private Otte otte;
     private int duration;
+
+    @Transient
+    private String tmpWorker;
+
+    @Transient
+    private String tmpOtte;
 
     public Task(Long id, String name, Project project, Worker worker, Otte otte, int duration) {
         this.id = id;
@@ -81,4 +88,19 @@ public class Task extends Model {
         this.duration = duration;
     }
 
+    public String getTmpWorker() {
+        return tmpWorker;
+    }
+
+    public void setTmpWorker(String tmpWorker) {
+        this.tmpWorker = tmpWorker;
+    }
+
+    public String getTmpOtte() {
+        return tmpOtte;
+    }
+
+    public void setTmpOtte(String tmpOtte) {
+        this.tmpOtte = tmpOtte;
+    }
 }
