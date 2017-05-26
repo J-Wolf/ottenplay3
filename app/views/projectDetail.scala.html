@@ -2,7 +2,7 @@
 @main(project.getName) {
     <div class="row back">
         <div class="col-xs-12">
-            <a href="@routes.ProjectsController.index()"><i class="fa fa-caret-left" aria-hidden="true"></i> Zurück</a>
+            <a href="@routes.ProjectsController.index()"><i class="fa fa-caret-left" aria-hidden="true"></i> Zurück </a>
         </div>
     </div>
 
@@ -18,6 +18,12 @@
             } else{
                 <h2>No tasks for this project yet</h2>
             }
+            <div class="row add-item">
+                <div class="col-xs-2">
+                    <a href="@routes.FormController.addTask()" class="btn btn-success"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i></a>
+                </div>
+
+            </div>
         </div>
     </div>
 }

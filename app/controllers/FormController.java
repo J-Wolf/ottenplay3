@@ -42,8 +42,11 @@ public class FormController extends Controller {
     }
 
     public Result addTask(){
+        List<Worker> workerList = Worker.find.all();
+        List<Otte> otteList = Otte.find.all();
+        List<Project> projectList = Project.find.all();
         Form<Task> taskForm = formFactory.form(Task.class);
-        return ok(views.html.addTask.render(taskForm));
+        return ok(views.html.addTask.render(taskForm, workerList, otteList, projectList));
     }
 
 }

@@ -29,6 +29,9 @@ public class Task extends Model {
     @Transient
     private String tmpOtte;
 
+    @Transient
+    private String tmpProject;
+
     public Task(Long id, String name, Project project, Worker worker, Otte otte, int duration) {
         this.id = id;
         this.name = name;
@@ -102,5 +105,13 @@ public class Task extends Model {
 
     public void setTmpOtte(String tmpOtte) {
         this.tmpOtte = tmpOtte;
+    }
+
+    public String getTmpProject() {
+        return tmpProject;
+    }
+
+    public void setTmpProject(String tmpProject) {
+        this.tmpProject = tmpProject;
     }
 }

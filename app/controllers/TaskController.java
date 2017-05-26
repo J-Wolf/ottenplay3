@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Otte;
 import models.Task;
 import models.Project;
 import models.Worker;
@@ -28,6 +29,8 @@ public class TaskController extends Controller{
         Form<Task> taskForm = formFactory.form(Task.class);
         Task task = taskForm.bindFromRequest().get();
         task.setWorker(Worker.find.byId(Long.parseLong(task.getTmpWorker())));
+        task.setProject(Project.find.byId(Long.parseLong(task.getTmpProject())));
+        task.setOtte(Otte.find.byId(Long.parseLong(task.getTmpOtte())));
         task.save();
         return  redirect(routes.TaskController.index());
     }
