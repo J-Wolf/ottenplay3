@@ -1,0 +1,23 @@
+@(customerForm: play.data.Form[Customer])
+
+@main("Project"){
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Project</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+        @helper.form(action = routes.CustomersController.create(), 'enctype -> "multipart/form-data"){
+            @helper.inputText(customerForm("prename"), 'id -> "name", '_label -> "prename", 'class -> "form-control")
+            @helper.inputText(customerForm("lastname"), '_label -> "lastname", 'class -> "form-control")
+            @helper.inputText(customerForm("address"), '_label -> "address", 'class -> "form-control")
+            @helper.inputText(customerForm("email"), '_label -> "email", 'class -> "form-control")
+
+            <button type="submit" class="btn btn-success" value="Anlegen" ><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Add </button>
+        }
+        </div>
+    </div>
+
+}

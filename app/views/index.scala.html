@@ -1,0 +1,32 @@
+@(projectList: List[Project], workerList: List[Worker])
+
+@main("Home") {
+  <h1>Home</h1>
+  @if(projectList.size() > 0) {
+
+    <div class="row">
+      <div class="col-xs-12">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <td>Bezeichnung</td>
+            </tr>
+          </thead>
+          <tbody>
+          @for(project <- projectList){
+            <tr>
+                <td>heyy</td>
+            </tr>
+
+          }
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  } else{
+    <div class="project-item">
+      Kein Project vorhanden
+    </div>
+  }
+}
