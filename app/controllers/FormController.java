@@ -35,13 +35,19 @@ public class FormController extends Controller {
         Form<Customer> customerForm = formFactory.form(Customer.class);
         return ok(views.html.addCustomer.render(customerForm));
     }
+
     public Result addOtte(){
         Form<Otte> otteForm = formFactory.form(Otte.class);
         return ok(views.html.addOtte.render(otteForm));
     }
 
-
-
+    public Result addTask(){
+        List<Worker> workerList = Worker.find.all();
+        List<Otte> otteList = Otte.find.all();
+        List<Project> projectList = Project.find.all();
+        Form<Task> taskForm = formFactory.form(Task.class);
+        return ok(views.html.addTask.render(taskForm, workerList, otteList, projectList));
+    }
 
 
 }

@@ -1,0 +1,39 @@
+@(taskForm: play.data.Form[Task], workerList: List[Worker], otteList: List[Otte], projectList: List[Project])
+
+@main("Task"){
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Task</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+        @helper.form(action = routes.TaskController.create(), 'enctype -> "multipart/form-data"){
+            @helper.inputText(taskForm("Name"), 'id -> "name", '_label -> "Name", 'class -> "form-control")
+            @helper.inputText(taskForm("Duration"), '_label -> "Duration", 'class -> "form-control", 'type -> "number")
+            @helper.select(
+                field = taskForm("TmpProject"),
+                options = (projectList.map(project => project.getId().toString() -> project.getName())),
+                'id -> "project",
+                '_label -> "Project",
+                'class -> "form-control")
+            @helper.select(
+                field = taskForm("TmpOtte"),
+                options = (otteList.map(otte => otte.getId().toString() -> otte.getName())),
+                'id -> "otte",
+                '_label -> "Otte",
+                'class -> "form-control")
+            @helper.select(
+                field = taskForm("TmpWorker"),
+                options = (workerList.map(worker => worker.getId().toString() -> worker.getPrename())),
+                'id -> "worker",
+                '_label -> "Worker",
+                'class -> "form-control")
+
+            <button type="submit" class="btn btn-success" value="Anlegen" ><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Add </button>
+        }
+        </div>
+    </div>
+
+}

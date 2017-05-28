@@ -8,12 +8,14 @@ GET     /project                    controllers.FormController.addProject()
 GET     /worker                     controllers.FormController.addWorker()
 GET     /customer                   controllers.FormController.addCustomer()
 GET     /otte                       controllers.FormController.addOtte()
+GET     /task                       controllers.FormController.addTask()
 
 #Home
 GET     /home                       controllers.HomeController.index()
 
 #Projects
 GET     /projects                   controllers.ProjectsController.index()
+GET     /project/:id                controllers.ProjectsController.show(id: Long)
 POST    /projects                   controllers.ProjectsController.create()
 
 #Otten
@@ -31,6 +33,11 @@ POST    /customers                  controllers.CustomersController.create()
 
 #User
 POST    /user                       controllers.UserController.create()
+
+#Task
+GET     /tasks                      controllers.TaskController.index()
+POST    /tasks                       controllers.TaskController.create()
+
 
 
 # Map static resources from the /public folder to the /assets URL path

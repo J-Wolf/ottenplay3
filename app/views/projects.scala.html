@@ -13,9 +13,16 @@
                     </thead>
                     <tbody>
                     @for(project <- projectList){
-                        <tr>
-                            <td>@project.getName()</td>
-                        </tr>
+                            <tr>
+                                <td>
+                                    <a href="@routes.ProjectsController.show(project.getId())">
+                                        <span style="color: black">
+                                            @project.getName()
+                                        </span>
+                                    </a>
+                                </td>
+
+                            </tr>
 
                     }
                     </tbody>
@@ -32,6 +39,5 @@
         <div class="col-xs-2">
             <a href="@routes.FormController.addProject()" class="btn btn-success"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i></a>
         </div>
-
     </div>
 }
