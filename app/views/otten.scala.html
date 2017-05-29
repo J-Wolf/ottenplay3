@@ -15,6 +15,7 @@
                     @for(otte <- ottenList){
                         <tr>
                             <td>@otte.getName()</td>
+                            <td>@otte.getRasse()</td>
                         </tr>
                     }
                     </tbody>
@@ -30,6 +31,22 @@
     <div class="row add-item">
         <div class="col-xs-2">
             <a href="@routes.FormController.addOtte()" class="btn btn-success"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <tbody>
+            @for(otte <- ottenList){
+                <tr>
+                    <td>@otte.getName()</td>
+                    <td>@otte.getRasse()</td>
+                    <td>
+                        <a href="@routes.OttenController.delete(otte.getId())" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            }
+            </tbody>
         </div>
     </div>
 

@@ -36,4 +36,10 @@ public class ProjectsController extends Controller{
         project.save();
         return  redirect(routes.ProjectsController.index());
     }
+    public Result delete(Long id){
+        Project project = Project.find.byId(id);
+        project.delete();
+        return redirect(routes.ProjectsController.index());
+    }
+
 }

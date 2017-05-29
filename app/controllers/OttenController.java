@@ -26,4 +26,9 @@ public class OttenController extends Controller{
         otte.save();
         return  redirect(routes.OttenController.index());
     }
+    public Result delete(Long id){
+        Otte otte = Otte.find.byId(id);
+        otte.delete();
+        return redirect(routes.OttenController.index());
+    }
 }
