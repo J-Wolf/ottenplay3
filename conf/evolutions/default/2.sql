@@ -10,6 +10,12 @@ drop index ix_task_worker on task;
 alter table task drop foreign key fk_task_otte;
 drop index ix_task_otte on task;
 
+alter table project_task drop foreign key fk_project_task_project_project_id;
+drop index ix_project_task_project_project_id on project_task;
+
+alter table project_task drop foreign key fk_project_task_task_task_id;
+drop index ix_project_task_task_task_id on project_task;
+
 alter table project drop foreign key fk_project_customer;
 drop index ix_project_customer on project;
 
@@ -18,6 +24,8 @@ drop table if exists project;
 drop table if exists user;
 
 drop table if exists otte;
+
+drop table if exists project_task;
 
 drop table if exists worker;
 
