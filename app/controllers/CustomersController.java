@@ -25,4 +25,10 @@ public class CustomersController extends Controller{
         customer.save();
         return  redirect(routes.CustomersController.index());
     }
+
+    public Result delete(Long id){
+        Customer customer = Customer.find.byId(id);
+        customer.delete();
+        return redirect(routes.CustomersController.index());
+    }
 }

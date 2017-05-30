@@ -15,6 +15,8 @@
                     @for(customer <- customerList){
                         <tr>
                             <td>@customer.getPrename()</td>
+                            <td>@customer.getLastname()</td>
+                            <td>@customer.getAddress()</td>
                         </tr>
 
                     }
@@ -27,10 +29,26 @@
         <div class="customer-item">
             Kein Customer vorhanden
         </div>
-        <div class="row add-item">
-            <div class="col-xs-2">
-                <a href="@routes.FormController.addCustomer()" class="btn btn-success"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i></a>
+    }
+    <div class="row add-item">
+        <div class="col-xs-2">
+            <a href="@routes.FormController.addCustomer()" class="btn btn-success"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <tbody>
+                @for(customer <- customerList){
+                    <tr>
+                        <td>@customer.getPrename()</td>
+                        <td>@customer.getLastname()</td>
+                        <td>
+                            <a href="@routes.CustomersController.delete(customer.getId())" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
             </div>
         </div>
-    }
+    </div>
 }

@@ -17,25 +17,29 @@ GET     /home                       controllers.HomeController.index()
 GET     /projects                   controllers.ProjectsController.index()
 GET     /project/:id                controllers.ProjectsController.show(id: Long)
 POST    /projects                   controllers.ProjectsController.create()
+GET     /deleteproject/:id          controllers.ProjectsController.delete(id: Long)
 
 #Otten
 GET     /otten                      controllers.OttenController.index()
 POST    /otten                      controllers.OttenController.create()
+GET     /deleteotte/:id             controllers.OttenController.delete(id: Long)
 
 #Workers
 GET     /workers                    controllers.WorkersController.index()
 POST    /workers                    controllers.WorkersController.create()
+GET     /deleteworker/:id           controllers.WorkersController.delete(id: Long)
 
 #Costumers
 GET     /customers                  controllers.CustomersController.index()
 POST    /customers                  controllers.CustomersController.create()
+GET     /deletecustomer/:id         controllers.CustomersController.delete(id: Long)
 
 #User
 POST    /user                       controllers.UserController.create()
 
 #Task
 GET     /tasks                      controllers.TaskController.index()
-POST    /tasks                       controllers.TaskController.create()
+POST    /tasks                      controllers.TaskController.create()
 
 
 

@@ -26,4 +26,11 @@ public class WorkersController extends Controller {
         return  redirect(routes.WorkersController.index());
     }
 
+    public Result delete(Long id){
+        Worker worker = Worker.find.byId(id);
+        worker.delete();
+        return redirect(routes.WorkersController.index());
+    }
+
+
 }
