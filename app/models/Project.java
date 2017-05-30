@@ -2,10 +2,8 @@ package models;
 
 import com.avaje.ebean.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by georg on 21.05.2017.
@@ -17,22 +15,16 @@ public class Project extends Model{
 
     private Long id;
     private String name;
-    private Task[] tasks;
     private Customer customer;
     private int duration;
+
+    @OneToMany(mappedBy = "project")
+    private List<ProjectTask> tasks;
 
     @Transient
     private String tmpCustomer;
 
     public static Finder<Long, Project> find = new Finder<Long, Project>(Project.class);
-
-    public Project(Long id, String name, Task[] tasks, Customer customer, int duration) {
-        this.id = id;
-        this.name = name;
-        this.tasks = tasks;
-        this.customer = customer;
-        this.duration = duration;
-    }
 
     public Long getId() {
         return id;
@@ -48,14 +40,6 @@ public class Project extends Model{
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Task[] getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(Task[] tasks) {
-        this.tasks = tasks;
     }
 
     public Customer getCustomer() {

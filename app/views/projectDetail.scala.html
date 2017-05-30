@@ -9,13 +9,13 @@
     <div class="row">
         <div class="col-xs-12">
             <h1>@project.getName()</h1>
-            @if(tasks.size() > 0){
-                @for(task <- tasks){
+            @if(tasks.size() > 0) {
+                @for(task <- tasks) {
                     <tr>
                         <td>@task.getName()</td>
                     </tr>
                 }
-            } else{
+            } else {
                 <h2>No tasks for this project yet</h2>
             }
             <div class="row add-item">
