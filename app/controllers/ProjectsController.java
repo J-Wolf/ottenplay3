@@ -25,8 +25,7 @@ public class ProjectsController extends Controller{
 
     public Result show(Long id){
         Project project = Project.find.byId(id);
-        List tasks = Task.find.all();
-        return ok(views.html.projectDetail.render(project, tasks));
+        return ok(views.html.projectDetail.render(project));
     }
 
     public Result create(){

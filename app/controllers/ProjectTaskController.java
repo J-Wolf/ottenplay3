@@ -25,4 +25,10 @@ public class ProjectTaskController extends Controller {
         return redirect(routes.ProjectsController.show(projectTask.getId()));
     }
 
+    public Result delete(Long id){
+        ProjectTask projectTask = ProjectTask.find.byId(id);
+        projectTask.delete();
+        return redirect(routes.ProjectsController.index());
+    }
+
 }

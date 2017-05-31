@@ -43,10 +43,11 @@ POST    /user                       controllers.UserController.create()
 #Task
 GET     /tasks                      controllers.TaskController.index()
 POST    /tasks                      controllers.TaskController.create()
+GET     /deletetask/:id             controllers.TaskController.delete(id: Long)
 
 #ProjectTask
 POST    /projectTask                controllers.ProjectTaskController.create()
-
+GET     /deleteprojectTask/:id      controllers.ProjectTaskController.delete(id: Long)
 
 
 # Map static resources from the /public folder to the /assets URL path

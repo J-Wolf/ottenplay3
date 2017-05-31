@@ -19,6 +19,9 @@
                     <tbody>
                         <tr>
                             <td>@projectTask.getTask.getName()</td>
+                            <td>
+                                <a href="@routes.ProjectTaskController.delete(projectTask.getId())" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i></a>
+                            </td>
                         </tr>
                     </tbody>
                 }
@@ -29,7 +32,6 @@
                 <div class="col-xs-2">
                     <a href="@routes.FormController.addProjectTask()" class="btn btn-success"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i></a>
                 </div>
-
             </div>
         </div>
     </div>

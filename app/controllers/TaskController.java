@@ -33,4 +33,10 @@ public class TaskController extends Controller{
         task.save();
         return  redirect(routes.TaskController.index());
     }
+
+    public Result delete(Long id){
+        Task task = Task.find.byId(id);
+        task.delete();
+        return redirect(routes.TaskController.index());
+    }
 }
