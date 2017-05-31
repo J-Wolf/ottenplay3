@@ -9,6 +9,8 @@ GET     /worker                     controllers.FormController.addWorker()
 GET     /customer                   controllers.FormController.addCustomer()
 GET     /otte                       controllers.FormController.addOtte()
 GET     /task                       controllers.FormController.addTask()
+GET     /projectTask                controllers.FormController.addProjectTask()
+
 
 
 #Home
@@ -41,6 +43,9 @@ POST    /user                       controllers.UserController.create()
 #Task
 GET     /tasks                      controllers.TaskController.index()
 POST    /tasks                      controllers.TaskController.create()
+
+#ProjectTask
+POST    /projectTask                controllers.ProjectTaskController.create()
 
 
 

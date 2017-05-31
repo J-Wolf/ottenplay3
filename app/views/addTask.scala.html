@@ -1,4 +1,4 @@
-@(taskForm: play.data.Form[Task], workerList: List[Worker], otteList: List[Otte], projectList: List[Project])
+@(taskForm: play.data.Form[Task], workerList: List[Worker], otteList: List[Otte])
 
 @main("Task"){
     <div class="row">
@@ -12,12 +12,6 @@
         @helper.form(action = routes.TaskController.create(), 'enctype -> "multipart/form-data"){
             @helper.inputText(taskForm("Name"), 'id -> "name", '_label -> "Name", 'class -> "form-control")
             @helper.inputText(taskForm("Duration"), '_label -> "Duration", 'class -> "form-control", 'type -> "number")
-            @helper.select(
-                field = taskForm("TmpProject"),
-                options = (projectList.map(project => project.getId().toString() -> project.getName())),
-                'id -> "project",
-                '_label -> "Project",
-                'class -> "form-control")
             @helper.select(
                 field = taskForm("TmpOtte"),
                 options = (otteList.map(otte => otte.getId().toString() -> otte.getName())),

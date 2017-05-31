@@ -16,14 +16,23 @@ import java.util.List;
 public class FormController extends Controller {
     @Inject
     public FormFactory formFactory;
+
     public Result loginUser(){
         Form<User> loginForm = formFactory.form(User.class);
         return ok(views.html.login.render(loginForm));
     }
+
     public Result addProject(){
         List<Customer> customerList = Customer.find.all();
         Form<Project> projectForm = formFactory.form(Project.class);
         return ok(views.html.addProject.render(projectForm, customerList));
+    }
+
+    public Result addProjectTask(){
+        List<Task> taskList = Task.find.all();
+        List<Project> projectList = Project.find.all();
+        Form<ProjectTask> projectTaskForm = formFactory.form(ProjectTask.class);
+        return ok(views.html.addProjectTask.render(projectTaskForm, projectList, taskList));
     }
 
     public Result addWorker(){
@@ -44,9 +53,8 @@ public class FormController extends Controller {
     public Result addTask(){
         List<Worker> workerList = Worker.find.all();
         List<Otte> otteList = Otte.find.all();
-        List<Project> projectList = Project.find.all();
         Form<Task> taskForm = formFactory.form(Task.class);
-        return ok(views.html.addTask.render(taskForm, workerList, otteList, projectList));
+        return ok(views.html.addTask.render(taskForm, workerList, otteList));
     }
 
 
