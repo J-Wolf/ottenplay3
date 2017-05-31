@@ -65,4 +65,12 @@ public class Project extends Model{
     public void setTmpCustomer(String tmpCustomer) {
         this.tmpCustomer = tmpCustomer;
     }
+
+    public List<ProjectTask> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<ProjectTask> tasks) {
+        this.tasks = tasks;
+    }
 }
