@@ -29,8 +29,6 @@ public class Task extends Model {
     @Transient
     private String tmpOtte;
 
-    @Transient
-    private String tmpProject;
 
     public static Finder<Long, Task> find = new Finder<Long, Task>(Task.class);
 
@@ -90,11 +88,4 @@ public class Task extends Model {
         this.tmpOtte = tmpOtte;
     }
 
-    public String getTmpProject() {
-        return tmpProject;
-    }
-
-    public void setTmpProject(String tmpProject) {
-        this.tmpProject = tmpProject;
-    }
 }

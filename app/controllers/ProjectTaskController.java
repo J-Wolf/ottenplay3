@@ -22,7 +22,8 @@ public class ProjectTaskController extends Controller {
         ProjectTask projectTask = projectTaskForm.bindFromRequest().get();
         projectTask.setProject(Project.find.byId(Long.parseLong(projectTask.getTmpproject())));
         projectTask.setTask(Task.find.byId(Long.parseLong(projectTask.getTmptask())));
-        return redirect(routes.ProjectsController.show(projectTask.getId()));
+        projectTask.save();
+        return redirect(routes.ProjectsController.index());
     }
 
     public Result delete(Long id){

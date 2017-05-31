@@ -12,8 +12,8 @@ import java.util.List;
  * Created by georg on 21.05.2017.
  */
 public class OttenController extends Controller{
-    List<Otte> ottenList = Otte.find.all();
     public Result index() {
+        List<Otte> ottenList = Otte.find.all();
         return ok(views.html.otten.render(ottenList));
     }
 

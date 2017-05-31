@@ -2,14 +2,12 @@ package models;
 
 import com.avaje.ebean.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 /**
  * Created by georg on 30.05.2017.
  */
+@Entity
 public class ProjectTask extends Model {
     @Id
     @Column(name = "projecttask_id")

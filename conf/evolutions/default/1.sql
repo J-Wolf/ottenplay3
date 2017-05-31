@@ -4,7 +4,6 @@ create table worker (
   worker_id                     bigint auto_increment not null,
   prename                       varchar(255),
   lastname                      varchar(255),
-  id                            varchar(255),
   constraint pk_worker primary key (worker_id)
 );
 
@@ -32,14 +31,14 @@ create table task (
 );
 
 create table project_task (
-  project_task                  bigint auto_increment not null,
+  project_task_id               bigint auto_increment not null,
   project_project_id            bigint,
   task_task_id                  bigint,
-  constraint pk_project_task primary key (project_task)
+  constraint pk_project_task primary key (project_task_id)
 );
 
 create table otte (
-  otte_id                      bigint auto_increment not null,
+  otte_id                       bigint auto_increment not null,
   name                          varchar(255),
   rasse                         varchar(255),
   constraint pk_otte primary key (otte_id)
@@ -56,16 +55,16 @@ alter table task add constraint fk_task_worker foreign key (task_id) references 
 create index ix_task_worker on task (task_id);
 
 alter table task add constraint fk_task_otte foreign key (task_id) references otte (otte_id)  on delete restrict on update restrict;
-create index ix_task_otte_id on task (task_id);
+create index ix_task_otte on task (task_id);
 
 alter table project add constraint fk_project_customer foreign key (project_id) references customer (customer_id) on delete restrict on update restrict;
 create index ix_project_customer on project (project_id);
 
-alter table project_task add constraint fk_project_task_project_project_id foreign key (project_project_id) references project (project_id) on delete restrict on update restrict;
-create index ix_project_task_project_project_id on project_task (project_project_id);
+alter table project_task add constraint fk_project_task_project_project foreign key (project_project_id) references project (project_id) on delete restrict on update restrict;
+create index ix_project_task_project_project on project_task (project_task_id);
 
-alter table project_task add constraint fk_project_task_task_task_id foreign key (task_task_id) references project (task_id) on delete restrict on update restrict;
-create index ix_project_task_task_task_id on project_task (task_task_id);
+alter table project_task add constraint fk_project_task_task_task foreign key (task_task_id) references project (task_id) on delete restrict on update restrict;
+create index ix_project_task_task_task on project_task (project_task_id);
 
 
 
