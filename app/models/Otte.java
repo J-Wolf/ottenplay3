@@ -18,6 +18,8 @@ public class Otte extends Model{
     private String name;
     private String rasse;
     private Task[] tasks;
+    private byte[] image;
+    private String imagepath;
 
     public Otte(Long id, String name, String rasse, Task[] tasks) {
         this.id = id;
@@ -58,5 +60,21 @@ public class Otte extends Model{
 
     public void setTasks(Task[] tasks) {
         this.tasks = tasks;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public String getImagepath() {
+        return imagepath;
+    }
+
+    public void setImagepath(String imagepath) {
+        this.imagepath = imagepath;
     }
 }

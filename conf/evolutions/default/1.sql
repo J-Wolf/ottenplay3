@@ -41,6 +41,9 @@ create table otte (
   otte_id                       bigint auto_increment not null,
   name                          varchar(255),
   rasse                         varchar(255),
+  imagepath                     varchar(255),
+  image                         varbinary(255),
+
   constraint pk_otte primary key (otte_id)
 );
 
