@@ -9,24 +9,25 @@
                     <thead>
                         <tr>
                             <td>Name</td>
+                            <td>Länge</td>
+                            <td></td>
                         </tr>
                     </thead>
-                    <tbody>
+                    <a>
                     @for(project <- projectList){
+                        <a href="@routes.ProjectsController.show(project.getId())">
                             <tr>
                                 <td>
-                                    <a href="@routes.ProjectsController.show(project.getId())">
-                                        <span style="color: black">
-                                            <p>Projektname:</p>
-                                            @project.getName()
-                                            <p>-----------</p>
-                                            <p>Tage:</p>
-                                            @project.getDuration()
-                                        </span>
-                                    </a>
+                                    @project.getName()
                                 </td>
-
+                                <td>
+                                    @project.getDuration()
+                                </td>
+                                <td>
+                                    <a href="@routes.ProjectsController.delete(project.getId())" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i></a>
+                                </td>
                             </tr>
+                        </a>
 
                     }
                     </tbody>
@@ -53,7 +54,6 @@
                         <td>@project.getCustomer()</td>
                         <td>@project.getDuration()</td>
                         <td>
-                            <a href="@routes.ProjectsController.delete(project.getId())" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i></a>
                         </td>
                     </tr>
                 }
