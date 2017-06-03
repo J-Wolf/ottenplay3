@@ -1,65 +1,47 @@
 @(projectList: List[Project])
 
-@main("Projects"){
-    <h1>Projects</h1>
-    @if(projectList.size() > 0) {
-        <div class="row">
-            <div class="col-xs-12">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <td>Name</td>
-                            <td>Länge</td>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <a>
-                    @for(project <- projectList){
-                        <a href="@routes.ProjectsController.show(project.getId())">
+    @main("Projects") {
+        <h1>Projects</h1>
+        @if(projectList.size() > 0) {
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table table-hover">
+                        <thead>
                             <tr>
+                                <td>Name</td>
+                                <td>Länge</td>
+                            </tr>
+                        </thead>
+                        @for(project <- projectList) {
+                            <tr>
+
                                 <td>
-                                    @project.getName()
+                                    <a href="@routes.ProjectsController.show(project.getId())">
+                                        <span style="color: black">
+                                            @project.getName()
+                                        </span>
+                                    </a>
                                 </td>
                                 <td>
-                                    @project.getDuration()
+                                @project.getDuration()
                                 </td>
                                 <td>
                                     <a href="@routes.ProjectsController.delete(project.getId())" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
-                        </a>
+                        }
+                    </table>
+                </div>
 
-                    }
-                    </tbody>
-                </table>
             </div>
-
-        </div>
-    } else {
-        <div class="project-item">
-            Kein Project vorhanden
+        } else {
+            <div class="project-item">
+                Kein Project vorhanden
+            </div>
+        }
+        <div class="row add-item">
+            <div class="col-xs-2">
+                <a href="@routes.FormController.addProject()" class="btn btn-success"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i></a>
+            </div>
         </div>
     }
-    <div class="row add-item">
-        <div class="col-xs-2">
-            <a href="@routes.FormController.addProject()" class="btn btn-success"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i></a>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-12">
-                <tbody>
-                @for(project <- projectList){
-                    <tr>
-                        <td>@project.getName()</td>
-                        <td>@project.getCustomer()</td>
-                        <td>@project.getDuration()</td>
-                        <td>
-                        </td>
-                    </tr>
-                }
-                </tbody>
-            </div>
-        </div>
-
-    </div>
-}
