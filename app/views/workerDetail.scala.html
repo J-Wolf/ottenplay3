@@ -1,0 +1,34 @@
+@(worker: Worker)
+@main(worker.getPrename) {
+    <div class="row back">
+        <div class="col-xs-12">
+            <a href="@routes.WorkersController.index()"><i class="fa fa-caret-left" aria-hidden="true"></i>
+                Zurück </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Worker</h1>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td><h2>Name</h2></td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>
+                    @worker.getPrename()
+                    </td>
+                </tr>
+            </table>
+
+            <div class="row add-item">
+                <div class="col-xs-2">
+                    <a href="@routes.FormController.addTask()" class="btn btn-success"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i> <span>Task hinzufügen</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

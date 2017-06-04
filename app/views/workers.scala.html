@@ -15,7 +15,13 @@
                     <tbody>
                     @for(worker <- workerList){
                         <tr>
-                            <td>@worker.getPrename()</td>
+                            <td>
+                                <a href="@routes.WorkersController.show(worker.getId())">
+                                    <span style="color: black">
+                                    @worker.getPrename()
+                                    </span>
+                                </a>
+                            </td>
                             <td>@worker.getLastname()</td>
                             <td>
                                 <a href="@routes.WorkersController.delete(worker.getId())" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i></a>
@@ -33,7 +39,7 @@
     }
     <div class="row add-item">
         <div class="col-xs-2">
-            <a href="@routes.FormController.addWorker()" class="btn btn-success"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i></a>
+            <a href="@routes.FormController.addWorker()" class="btn btn-success"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i> <span>Worker hinzufügen</span></a>
         </div>
     </div>
 }

@@ -16,6 +16,12 @@ public class WorkersController extends Controller {
         List<Worker> workerList = Worker.find.all();
         return ok(views.html.workers.render(workerList));
     }
+
+    public Result show(Long id){
+        Worker worker = Worker.find.byId(id);
+        return ok(views.html.workerDetail.render(worker));
+    }
+
     @Inject
     public FormFactory formFactory;
 

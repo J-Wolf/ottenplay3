@@ -29,6 +29,7 @@ GET     /deleteotte/:id             controllers.OttenController.delete(id: Long)
 
 #Workers
 GET     /workers                    controllers.WorkersController.index()
+GET     /worker/:id                 controllers.WorkersController.show(id: Long)
 POST    /workers                    controllers.WorkersController.create()
 GET     /deleteworker/:id           controllers.WorkersController.delete(id: Long)
 
