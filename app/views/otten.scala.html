@@ -20,6 +20,9 @@
                                 <img src="@routes.Assets.versioned(otte.getImagepath())" class="img-responsive" />
                             </td>
                             <td>
+                                <a href="@routes.FormController.updateOtte(otte.getId())" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            </td>
+                            <td>
                                 <a href="@routes.OttenController.delete(otte.getId())" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i></a>
                             </td>
                         </tr>

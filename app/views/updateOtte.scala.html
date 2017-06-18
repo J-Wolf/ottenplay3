@@ -1,0 +1,21 @@
+@(otteForm: play.data.Form[Otte], id: Long)
+
+@main("Project"){
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Otten</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+        @helper.form(action = routes.OttenController.update(id), 'enctype -> "multipart/form-data"){
+            @helper.inputText(otteForm("Name"), 'id -> "name", '_label -> "Name", 'class -> "form-control")
+            @helper.inputText(otteForm("Rasse"), '_label -> "Race", 'class -> "form-control")
+            @helper.inputFile(otteForm("image"), '_label -> "Bild", 'class -> "form-control")
+            <button type="submit" class="btn btn-success" value="Anlegen" ><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Add </button>
+        }
+        </div>
+    </div>
+
+}

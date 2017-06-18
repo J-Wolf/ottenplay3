@@ -47,9 +47,25 @@ public class OttenController extends Controller{
         otte.save();
         return  redirect(routes.OttenController.index());
     }
+
     public Result delete(Long id){
         Otte otte = Otte.find.byId(id);
         otte.delete();
+        return redirect(routes.OttenController.index());
+    }
+
+    public Result update(Long id){
+        Otte otte = Otte.find.byId(id);
+        Otte new_otte;
+        Form<Otte> ottenForm = formFactory.form(Otte.class);
+        new_otte = ottenForm.bindFromRequest().get();
+        if(new_otte.getName()!=null){
+            otte.setName(new_otte.getName());
+        }
+        if(new_otte.getRasse()!=null){
+            otte.setRasse(new_otte.getRasse());
+        }
+        otte.save();
         return redirect(routes.OttenController.index());
     }
 }
