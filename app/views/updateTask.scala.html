@@ -1,0 +1,22 @@
+@(taskForm: play.data.Form[Task], id: Long)
+
+@main("Task"){
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Tasks</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+        @helper.form(action = routes.TaskController.update(id), 'enctype -> "multipart/form-data"){
+            @helper.inputText(taskForm("Name"), 'id -> "name", '_label -> "Name", 'class -> "form-control")
+            @helper.inputText(taskForm("Worker"), '_label -> "Worker", 'class -> "form-control")
+            @helper.inputFile(taskForm("Otte"), '_label -> "Otte", 'class -> "form-control")
+            @helper.inputFile(taskForm("Duration"), '_label -> "Duration", 'class -> "form-control")
+            <button type="submit" class="btn btn-success" value="Anlegen" ><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Add </button>
+        }
+        </div>
+    </div>
+
+}

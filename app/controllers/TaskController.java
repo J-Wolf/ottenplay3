@@ -39,4 +39,25 @@ public class TaskController extends Controller{
         task.delete();
         return redirect(routes.TaskController.index());
     }
+
+    public Result update(Long id){
+        Task task = Task.find.byId(id);
+        Task new_task;
+        Form<Task> taskForm = formFactory.form(Task.class);
+        new_task = taskForm.bindFromRequest().get();
+        if(new_task.getName()!=null){
+            task.setName(new_task.getName());
+        }
+        if(new_task.getWorker()!=null){
+            task.setWorker(new_task.getWorker());
+        }
+        if(new_task.getOtte()!=null){
+            task.setOtte(new_task.getOtte());
+        }
+        if(new_task.getDuration()>0){
+            task.setOtte(new_task.getOtte());
+        }
+        task.save();
+        return redirect(routes.OttenController.index());
+    }
 }

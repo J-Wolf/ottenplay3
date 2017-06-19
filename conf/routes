@@ -14,6 +14,8 @@ GET         /updateOtteForm/:id           controllers.FormController.updateOtte(
 GET         /updateCustomerForm/:id       controllers.FormController.updateCustomer(id: Long)
 GET         /updateProjectForm/:id        controllers.FormController.updateProject(id: Long)
 GET         /updateWorkerForm/:id         controllers.FormController.updateWorker(id: Long)
+GET         /updateTaskForm/:id           controllers.FormController.updateTask(id: Long)
+
 
 
 
@@ -53,6 +55,7 @@ POST        /user                         controllers.UserController.create()
 GET         /tasks                        controllers.TaskController.index()
 POST        /tasks                        controllers.TaskController.create()
 GET         /deletetask/:id               controllers.TaskController.delete(id: Long)
+POST        /updatetasks/:id              controllers.TaskController.update(id: Long)
 
 #ProjectTask
 POST        /projectTask                  controllers.ProjectTaskController.create()
