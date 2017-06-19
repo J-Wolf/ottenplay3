@@ -39,6 +39,7 @@ GET         /deleteworker/:id             controllers.WorkersController.delete(i
 GET         /customers                    controllers.CustomersController.index()
 POST        /customers                    controllers.CustomersController.create()
 GET         /deletecustomer/:id           controllers.CustomersController.delete(id: Long)
+POST        /updatecustomer/:id           controllers.CustomersController.update(id: Long)
 
 #User
 POST        /user                         controllers.UserController.create()

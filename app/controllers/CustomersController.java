@@ -31,4 +31,18 @@ public class CustomersController extends Controller{
         customer.delete();
         return redirect(routes.CustomersController.index());
     }
+    public Result update(Long id){
+        Customer customer = Customer.find.byId(id);
+        Customer new_customer;
+        Form<Customer> customerForm = formFactory.form(Customer.class);
+        new_customer = customerForm.bindFromRequest().get();
+        if(new_customer.getAddress()!=null){
+            customer.setAddress(new_customer.getAddress());
+        }
+        if(new_customer.getEmail()!=null){
+            customer.setEmail(new_customer.getEmail());
+        }
+        customer.save();
+        return redirect(routes.OttenController.index());
+    }
 }
