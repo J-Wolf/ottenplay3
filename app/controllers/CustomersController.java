@@ -36,6 +36,12 @@ public class CustomersController extends Controller{
         Customer new_customer;
         Form<Customer> customerForm = formFactory.form(Customer.class);
         new_customer = customerForm.bindFromRequest().get();
+        if(new_customer.getPrename()!=null){
+            customer.setPrename(new_customer.getPrename());
+        }
+        if(new_customer.getLastname()!=null){
+            customer.setLastname(new_customer.getLastname());
+        }
         if(new_customer.getAddress()!=null){
             customer.setAddress(new_customer.getAddress());
         }

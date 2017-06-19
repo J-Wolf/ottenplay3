@@ -14,7 +14,6 @@
                         </thead>
                         @for(project <- projectList) {
                             <tr>
-
                                 <td>
                                     <a href="@routes.ProjectsController.show(project.getId())">
                                         <span style="color: black">
@@ -27,6 +26,9 @@
                                 </td>
                                 <td>
                                     <a href="@routes.ProjectsController.delete(project.getId())" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i></a>
+                                </td>
+                                <td>
+                                    <a href="@routes.FormController.updateProject(project.getId())" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                         }

@@ -22,6 +22,7 @@ GET         /projects                     controllers.ProjectsController.index()
 GET         /project/:id                  controllers.ProjectsController.show(id: Long)
 POST        /projects                     controllers.ProjectsController.create()
 GET         /deleteproject/:id            controllers.ProjectsController.delete(id: Long)
+POST        /updateproject/:id            controllers.ProjectsController.update(id: Long)
 
 #Otten
 GET         /otten                        controllers.OttenController.index()

@@ -41,5 +41,23 @@ public class ProjectsController extends Controller{
         return redirect(routes.ProjectsController.index());
     }
 
+    public Result update(Long id){
+        Project project = Project.find.byId(id);
+        Project new_project;
+        Form<Project> projectForm = formFactory.form(Project.class);
+        new_project = projectForm.bindFromRequest().get();
+        if(new_project.getName()!=null){
+            project.setName(new_project.getName());
+        }
+        if(new_project.getCustomer()!=null){
+            project.setCustomer(new_project.getCustomer());
+        }
+        if(new_project.getDuration() > 0 ){
+            project.setDuration(new_project.getDuration());
+        }
+        project.save();
+        return redirect(routes.ProjectsController.index());
+    }
+
 
 }
