@@ -45,6 +45,9 @@ public class TaskController extends Controller{
         Task new_task;
         Form<Task> taskForm = formFactory.form(Task.class);
         new_task = taskForm.bindFromRequest().get();
+        new_task.setWorker(Worker.find.byId(Long.parseLong(new_task.getTmpWorker())));
+        new_task.setOtte(Otte.find.byId(Long.parseLong(new_task.getTmpOtte())));
+
         if(new_task.getName()!=null){
             task.setName(new_task.getName());
         }
@@ -58,6 +61,6 @@ public class TaskController extends Controller{
             task.setOtte(new_task.getOtte());
         }
         task.save();
-        return redirect(routes.OttenController.index());
+        return redirect(routes.TaskController.index());
     }
 }

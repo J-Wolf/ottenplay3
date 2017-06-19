@@ -61,8 +61,9 @@ public class FormController extends Controller {
     }
 
     public Result updateProject(Long id){
+        List<Customer> customerList = Customer.find.all();
         Form<Project> projectForm = formFactory.form(Project.class);
-        return ok(views.html.updateProject.render(projectForm, id));
+        return ok(views.html.updateProject.render(projectForm, id, customerList));
     }
 
     public Result updateWorker(Long id){

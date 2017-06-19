@@ -46,13 +46,14 @@ public class ProjectsController extends Controller{
         Project new_project;
         Form<Project> projectForm = formFactory.form(Project.class);
         new_project = projectForm.bindFromRequest().get();
+        new_project.setCustomer(Customer.find.byId(Long.parseLong(new_project.getTmpCustomer())));
         if(new_project.getName()!=null){
             project.setName(new_project.getName());
         }
         if(new_project.getCustomer()!=null){
             project.setCustomer(new_project.getCustomer());
         }
-        if(new_project.getDuration() > 0 ){
+        if(new_project.getDuration() != 0){
             project.setDuration(new_project.getDuration());
         }
         project.save();

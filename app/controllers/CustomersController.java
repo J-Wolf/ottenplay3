@@ -49,6 +49,6 @@ public class CustomersController extends Controller{
             customer.setEmail(new_customer.getEmail());
         }
         customer.save();
-        return redirect(routes.OttenController.index());
+        return redirect(routes.CustomersController.index());
     }
 }
