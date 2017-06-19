@@ -11,6 +11,8 @@ GET         /otte                         controllers.FormController.addOtte()
 GET         /task                         controllers.FormController.addTask()
 GET         /projectTask                  controllers.FormController.addProjectTask()
 GET         /updateOtteForm/:id           controllers.FormController.updateOtte(id: Long)
+GET         /updateCustomerForm/:id       controllers.FormController.updateCustomer(id: Long)
+GET         /updateProjectForm/:id        controllers.FormController.updateProject(id: Long)
 
 
 
@@ -22,7 +24,7 @@ GET         /projects                     controllers.ProjectsController.index()
 GET         /project/:id                  controllers.ProjectsController.show(id: Long)
 POST        /projects                     controllers.ProjectsController.create()
 GET         /deleteproject/:id            controllers.ProjectsController.delete(id: Long)
-POST        /updateproject/:id            controllers.ProjectsController.update(id: Long)
+POST        /updateprojects/:id           controllers.ProjectsController.update(id: Long)
 
 #Otten
 GET         /otten                        controllers.OttenController.index()
@@ -40,7 +42,7 @@ GET         /deleteworker/:id             controllers.WorkersController.delete(i
 GET         /customers                    controllers.CustomersController.index()
 POST        /customers                    controllers.CustomersController.create()
 GET         /deletecustomer/:id           controllers.CustomersController.delete(id: Long)
-POST        /updatecustomer/:id           controllers.CustomersController.update(id: Long)
+POST        /updatecustomers/:id          controllers.CustomersController.update(id: Long)
 
 #User
 POST        /user                         controllers.UserController.create()
