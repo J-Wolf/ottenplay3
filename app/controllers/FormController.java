@@ -65,6 +65,12 @@ public class FormController extends Controller {
         return ok(views.html.updateProject.render(projectForm, id));
     }
 
+    public Result updateWorker(Long id){
+        Form<Worker> workerForm = formFactory.form(Worker.class);
+        return ok(views.html.updateWorker.render(workerForm, id));
+    }
+
+
     public Result addTask(){
         List<Worker> workerList = Worker.find.all();
         List<Otte> otteList = Otte.find.all();

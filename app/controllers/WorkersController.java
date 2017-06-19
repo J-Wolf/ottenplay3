@@ -38,5 +38,19 @@ public class WorkersController extends Controller {
         return redirect(routes.WorkersController.index());
     }
 
+    public Result update(Long id){
+        Worker worker = Worker.find.byId(id);
+        Worker new_worker;
+        Form<Worker> workerForm = formFactory.form(Worker.class);
+        new_worker = workerForm.bindFromRequest().get();
+        if(new_worker.getPrename()!=null){
+            worker.setPrename(new_worker.getPrename());
+        }
+        if(new_worker.getLastname()!=null){
+            worker.setLastname(new_worker.getLastname());
+        }
+        worker.save();
+        return redirect(routes.WorkersController.index());
+    }
 
 }

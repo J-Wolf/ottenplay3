@@ -13,6 +13,7 @@ GET         /projectTask                  controllers.FormController.addProjectT
 GET         /updateOtteForm/:id           controllers.FormController.updateOtte(id: Long)
 GET         /updateCustomerForm/:id       controllers.FormController.updateCustomer(id: Long)
 GET         /updateProjectForm/:id        controllers.FormController.updateProject(id: Long)
+GET         /updateWorkerForm/:id         controllers.FormController.updateWorker(id: Long)
 
 
 
@@ -37,6 +38,7 @@ GET         /workers                      controllers.WorkersController.index()
 GET         /worker/:id                   controllers.WorkersController.show(id: Long)
 POST        /workers                      controllers.WorkersController.create()
 GET         /deleteworker/:id             controllers.WorkersController.delete(id: Long)
+POST        /updateworkers/:id            controllers.WorkersController.update(id: Long)
 
 #Costumers
 GET         /customers                    controllers.CustomersController.index()

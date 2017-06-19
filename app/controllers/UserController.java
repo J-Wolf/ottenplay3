@@ -30,4 +30,5 @@ public class UserController {
         user.save();
         return  redirect(routes.HomeController.index());
     }
+
 }

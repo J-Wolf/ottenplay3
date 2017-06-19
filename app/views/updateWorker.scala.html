@@ -1,0 +1,20 @@
+@(workerForm: play.data.Form[Worker], id: Long)
+
+@main("Worker"){
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Mitarbeiter</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+        @helper.form(action = routes.WorkersController.update(id), 'enctype -> "multipart/form-data"){
+            @helper.inputText(workerForm("Prename"), 'id -> "Prename", '_label -> "Prename", 'class -> "form-control")
+            @helper.inputText(workerForm("Lastname"), '_label -> "Lastname", 'class -> "form-control")
+            <button type="submit" class="btn btn-success" value="Anlegen" ><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Add </button>
+        }
+        </div>
+    </div>
+
+}
